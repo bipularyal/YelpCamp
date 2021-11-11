@@ -1,0 +1,31 @@
+<%- include ("../partials/header") %>
+
+
+
+
+
+<div class="container">
+		<header class="jumbotron">
+			<div class="container">	
+				<h1> Welcome to Campground Page</h1>
+				<p> We provide the most exclusive campground experience </p>
+				<a class="btn btn-primary btn-large" href="/campgrounds/new">Make new Campground</a>
+			</div>
+		</header>
+	<div class="row text-center">
+		<% campgrounds.forEach(function(campground){ %> 
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<img src="<%= campground.image%>"  alt="campground image">	
+					<div class="caption">
+						<h4><%= campground.name %></h4>
+					</div>
+					 <!-- the campground._id is unique id of each campground provided to us by mongodb  -->
+					<a href="/campgrounds/<%= campground._id %>" class="btn btn-primary"> More Info</a> 
+				</div>
+			</div>
+		<% }) %>
+	</div>
+</div>
+
+<%- include ("../partials/footer") %>
